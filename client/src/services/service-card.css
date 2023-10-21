@@ -1,0 +1,33 @@
+.service__item{
+    padding:1rem;
+    border-radius: 0.5rem;
+    box-shadow: rgba(17, 12, 14, 0.15) 0px 48px 100px 0px;
+
+
+}
+
+.service__img{
+    width: 50px;
+    height: 50px; 
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    background: var(--secondary-color);
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.service__img img{
+    width:100%;
+}
+
+.service__item h5{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.service__item p{
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
