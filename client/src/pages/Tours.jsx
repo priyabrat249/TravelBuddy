@@ -15,7 +15,7 @@ const Tours = () => {
   useEffect(() => {
     const pages = Math.ceil(5 / 2);
     setPageCount(pages);
-  },[page])
+  }, [page]);
   return (
     <>
       <CommonSection title={'All Tours'}/>
@@ -37,7 +37,7 @@ const Tours = () => {
               <div className='pagination d-flex align-items-center justify-content-center mt-4 gap-3'>
                 {
                   [...Array(pageCount).keys()].map(number => (
-                    <span key={number} onClick={()=>setPage(number)}>{number+1}</span>
+                    <span className={page===number ?'active_page':''} key={number} onClick={()=>setPage(number)}>{number+1}</span>
                   ))
                 }
               </div>
@@ -45,6 +45,7 @@ const Tours = () => {
           </Row>
         </Container>
       </section>
+      <NewsLetter/>
     </>
   )
 }

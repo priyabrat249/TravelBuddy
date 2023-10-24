@@ -7,6 +7,12 @@
 .logo{
     width:30%;
 }
+
+.logo img{
+    height: 30%;
+    width:30%
+}
+
 .menu{
     margin-bottom: 0;
 }

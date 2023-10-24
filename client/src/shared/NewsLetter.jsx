@@ -4,6 +4,8 @@ import maleTourist from '../assets/images/male-tourist.png';
 import './News-letter.css';
 const NewsLetter = () => {
     return (
+        <section className='newsletter'>
+
     <Container>
         <Row>
             <Col lg='6'>
@@ -25,6 +27,7 @@ const NewsLetter = () => {
             </Col>  
         </Row>      
             </Container>
+        </section>
             
   )
 }

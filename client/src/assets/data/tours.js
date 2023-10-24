@@ -13,6 +13,7 @@ const tours = [
     city: "London",
     distance: 300,
     price: 99,
+    address:'Somewhere',
     maxGroupSize: 10,
     desc: "this is the description",
     reviews: [
@@ -30,10 +31,16 @@ const tours = [
     title: "Bali, Indonesia",
     city: "Indonesia",
     distance: 400,
+    address:'Somewhere',
+
     price: 99,
     maxGroupSize: 8,
     desc: "this is the description",
     reviews: [
+      {
+        name: "jhon doe",
+        rating: 4.6,
+      },
       {
         name: "jhon doe",
         rating: 4.6,
@@ -49,6 +56,8 @@ const tours = [
     city: "Thailand",
     distance: 500,
     price: 99,
+    address:'Somewhere',
+
     maxGroupSize: 8,
     desc: "this is the description",
     reviews: [
@@ -67,6 +76,8 @@ const tours = [
     city: "Thailand",
     distance: 500,
     price: 99,
+    address:'Somewhere',
+
     maxGroupSize: 8,
     desc: "this is the description",
     reviews: [
@@ -85,6 +96,8 @@ const tours = [
     city: "Indonesia",
     distance: 500,
     price: 99,
+    address:'Somewhere',
+
     maxGroupSize: 8,
     desc: "this is the description",
     reviews: [
@@ -103,6 +116,8 @@ const tours = [
     city: "Japan",
     distance: 500,
     price: 99,
+    address:'Somewhere',
+
     maxGroupSize: 8,
     desc: "this is the description",
     reviews: [
@@ -125,6 +140,8 @@ const tours = [
     city: "France",
     distance: 500,
     price: 99,
+    address:'Somewhere',
+
     maxGroupSize: 8,
     desc: "this is the description",
     reviews: [],
@@ -138,6 +155,8 @@ const tours = [
     city: "Thailand",
     distance: 500,
     price: 99,
+    address:'Somewhere',
+
     maxGroupSize: 8,
     desc: "this is the description",
     reviews: [],

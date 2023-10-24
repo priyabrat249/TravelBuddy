@@ -1,0 +1,16 @@
+/* .thank__you{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.thank__you span i{
+    font-size:4rem;
+    color:green;
+
+}
+
+.thank__you h1{
+    font-size: 3.6rem;
+    font-family: var(--subtitle-font-name);
+}
