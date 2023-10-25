@@ -43,7 +43,7 @@ const Login = () => {
                   </FormGroup>
                   <Button className='btn secondary__btn auth__btn' type='submit' onClick={HandleClick}>Login</Button>
                 </Form>
-                <p>Don't have an accout?<Link to='/register'>Create</Link></p>
+                <p>Don't have an accout?<Link to='/register'>Create Account</Link></p>
               </div>
             </div>
           </Col>

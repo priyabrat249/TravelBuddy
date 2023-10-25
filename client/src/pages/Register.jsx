@@ -9,6 +9,7 @@ import { useState } from 'react';
 const Register = () => {
 
   const [credentials, setCredentials] = useState({
+    userName:undefined,
     email: undefined,
     password:undefined
   })
@@ -46,7 +47,7 @@ const Register = () => {
                   </FormGroup>
                   <Button className='btn secondary__btn auth__btn' type='submit' onClick={HandleClick}>Login</Button>
                 </Form>
-                <p>Already have an accout?<Link to='/login'>Create Account</Link></p>
+                <p>Already have an accout?<Link to='/login'>Login</Link></p>
               </div>
             </div>
           </Col>

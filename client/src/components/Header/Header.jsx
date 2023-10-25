@@ -26,7 +26,7 @@ const Header = () => {
           <div className='nav__wrapper d-flex align-items-center justify-content-between'>
             <div className="logo d-flex align-items-start mt-1 justify-content-center">
               <img src={Travel__logo} alt=''/>
-              <h1><a style={{ textDecoration: 'none' , color:'black'}} href="/"><strong style={{ color: '#ff7e01' }}>Travel</strong>Buddy</a></h1>
+              <h1 className='mt-2'><a style={{ textDecoration: 'none' , color:'black'}} href="/"><strong style={{ color: '#ff7e01' }}>Travel</strong>Buddy</a></h1>
             </div>
             <div className='navigation'>
               <ul className='menu d-flex align-items-center gap-5'>
