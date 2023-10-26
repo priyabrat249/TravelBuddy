@@ -4,11 +4,11 @@ const verifyToken = (req, res, next) => {
     const token = req.cookies.accessToken
     
     if (!token) {
-        return res.status(401).json({ success: false, message: 'You are not authorized' });
+        return res.status(401).json({ success: false, message: 'You are not authorize' });
     }
     jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
         if (err) {
-            return res.status(401).json({success:false,message:"token is invalid"});
+            return res.status(401).json({success:false,message:"token is invalid",error:err.message});
         }
 
         req.user = user;
@@ -31,7 +31,7 @@ export const verifyAdmin = (req, res, next) => {
         if (req.user.role === 'admin') {
             next();
         } else {
-            return res.status(401).json({success:false,message:"You're not authentize"});
+            return res.status(401).json({success:false,message:"You're not authorize"});
         }
     })
 }

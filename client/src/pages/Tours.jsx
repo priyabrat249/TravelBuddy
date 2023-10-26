@@ -3,19 +3,24 @@ import CommonSection from '../shared/CommonSection'
 import TourCard from '../shared/TourCard'
 import NewsLetter from '../shared/NewsLetter'
 import SearchBar from '../shared/SearchBar'
-import tours from '../assets/data/tours'
-
+// import tours from '../assets/data/tours'
+import { BASE_URL } from '../utils/config.js';
+import useFetch from '../hooks/useFetch';
 import '../styles/Tours.css'
 import { Container ,Row,Col} from 'reactstrap'
 
 const Tours = () => {
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
-  
+  const {data:tours,loading,error}=useFetch(`${BASE_URL}/tours?page=${page}`)
+  const {data:tourCount}=useFetch(`${BASE_URL}/tours/search/getTourCount`)
+
+
   useEffect(() => {
-    const pages = Math.ceil(5 / 2);
+    const pages = Math.ceil(tourCount / 8);
     setPageCount(pages);
-  }, [page]);
+    window.scrollTo(0,0);
+  }, [page,tourCount,tours]);
   return (
     <>
       <CommonSection title={'All Tours'}/>
@@ -29,7 +34,14 @@ const Tours = () => {
       </section>
       <section className='pt-0'>
         <Container>
-          <Row>
+          
+        {
+          loading && <h4 className='pt-5 text-center'>Loading . . . . . .</h4>
+        }
+        {
+          error && <h4 className='pt-5 text-center'>{error}</h4>
+        }
+          {!loading && !error && <Row>
             {
               tours.map((item, index) => <Col key={item.id} className='mb-4' lg='3'><TourCard tour={item} /></Col>)
             }
@@ -37,12 +49,13 @@ const Tours = () => {
               <div className='pagination d-flex align-items-center justify-content-center mt-4 gap-3'>
                 {
                   [...Array(pageCount).keys()].map(number => (
-                    <span className={page===number ?'active_page':''} key={number} onClick={()=>setPage(number)}>{number+1}</span>
+                    <span className={page === number ? 'active_page' : ''} key={number} onClick={() => setPage(number)}>{number + 1}</span>
                   ))
                 }
               </div>
             </Col>
           </Row>
+          }
         </Container>
       </section>
       <NewsLetter/>

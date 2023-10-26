@@ -12,7 +12,8 @@ export const createReview = async (req, res) => {
         })
 
         res.status(200).json({success:true,message:"Review submitted",data:savedReview})
-    } catch (err){
+    } catch (err) {
+        console.log(err);
         res.status(500).json({success:false,message:"failed to submit"})
         
     }

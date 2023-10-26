@@ -3,34 +3,47 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 //user registration
+
 export const register = async (req, res) => {
     try {
+        const existingUser = await User.findOne({ $or: [{ username: req.body.userName }, { email: req.body.email }] });
 
-        //hashing password
-        const salt = bcrypt.genSaltSync(10);
-        const hash = bcrypt.hashSync(req.body.password, salt);
+        if (existingUser) {
+            return res.status(400).json({
+                success: false,
+                message: "Username or email is already in use."
+            });
+        }
+        console.log(existingUser);
+        // Hashing password
+        const salt = await bcrypt.genSalt(10); // Use await as bcrypt.genSaltSync is asynchronous
+        const hash = await bcrypt.hash(req.body.password, salt);
 
-
-        const user = await User({
-            username: req.body.username,
+        const user = await User.create({
+            username: req.body.userName,
             email: req.body.email,
             password: hash,
             photo: req.body.photo
-        }).save();
-        
+        });
 
-        res.status(200).json({
+        // Assuming you have a mechanism to generate a token, role, and rest data
+        const token = jwt.sign({ userId:user._id},process.env.JWT_SECRET_KEY,{expiresIn:'15d'}); // Replace with your token generation logic
+        const role = user.role; // Replace with your role logic
+        const rest = {}; // Replace with your additional user data
+
+        res.status(201).json({
             token,
             success: true,
-            message: "successfully Created",
+            message: "Successfully Created",
             data: { ...rest },
             role,
         });
-    } catch (err) { 
-        res.status(500).json({ succcess: false, message: "Failed to register" });
-        console.log(err);
+    } catch (err) {
+        console.error(err); // Log the error for debugging purposes
+        res.status(500).json({ success: false, message: "Failed to register" });
     }
 }
+
 
 
 export const login = async (req, res) => {

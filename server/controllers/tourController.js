@@ -57,10 +57,12 @@ export const deleteTour = async (req, res) => {
 
 //getSingleTour
 export const getSingleTour = async (req, res) => {
-    const id=req.params.id;
+    const id = req.params.id;
+    
     try {
         const tour = await Tour.findById(id).populate('reviews');
         // console.log(deletedTour);
+        console.log(tour);
         res.status(200).json({
             success: true,
             message: "successfully fetched",

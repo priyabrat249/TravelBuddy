@@ -2,11 +2,21 @@ import React from 'react'
 import TourCard from '../../shared/TourCard'
 import TourData from '../../assets/data/tours'
 import { Col } from 'reactstrap';
+import useFetch from '../../hooks/useFetch';
+import { BASE_URL } from '../../utils/config';
 
 const Featuredtourlist = () => {
+  const { data: featuredtour ,loading,error} = useFetch(`${BASE_URL}/tours/search/getFeaturedTour`);
+  // console.log(featuredtour)
     return (
       <>
-        {TourData.map(tour => (
+        {
+          loading && <h4>Loading . . . . . .</h4>
+        }
+        {
+          error && <h4>{error}</h4>
+        }
+        {!loading && !error && featuredtour.map(tour => (
             <Col lg='3' className='mb-4' key={tour.id}>
                 <TourCard tour={tour} />
             </Col>

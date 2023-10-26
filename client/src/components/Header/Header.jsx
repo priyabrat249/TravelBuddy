@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef,useContext} from 'react'
 import { Container,Row, Button } from 'reactstrap'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link,useNavigate } from 'react-router-dom'
 import Travel__logo from '../../assets/images/TravelBuddy_logo.png'
+import { AuthContext } from '../../context/AuthContext';
 import './style.css';
 const nav_links=[
   {
@@ -19,6 +20,13 @@ const nav_links=[
 ]
   
 const Header = () => {
+  const navigate = useNavigate();
+  const { user, dispatch } = useContext(AuthContext);
+  
+  const logout = () => {
+    dispatch({ type: 'LOGOUT' });
+    navigate('/login');
+  }
   return (
     <header className='sticky__header'>
       <Container>
@@ -39,9 +47,20 @@ const Header = () => {
             </div>
             <div className='nav__right d-flex align-items-center gap-4'>
               <div className='nav__btns d-flex align-items-center gap-4'>
+                {
+                  user ?( <>
+                    <h5 className='mb-0'>{user.username}</h5>
+                    <Button className='btn btn-dark' onClick={logout}>Logout</Button>
+                  </>):(
+                      <>
                 <Button className='btn secondary__btn'><NavLink className={navClass=>navClass.isActive?'active__link':'' } to='/login'>Login</NavLink>
 </Button>
                   <Button className='btn primary__btn'><Link to='/register'>Register</Link></Button>
+              
+                        
+                    </>
+                  )
+                }
               </div>
             </div>
             <span className='mobile__menu'>

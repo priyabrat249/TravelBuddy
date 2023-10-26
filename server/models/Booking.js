@@ -13,12 +13,12 @@ const tourSchema = new mongoose.Schema(
     aadharNum: {
         type: String,
         required: true,
-        unique: true,
+        
     },
     phone: {
         type: Number,
         required: true,
-        unique: true,
+        
     },
     guestSize: {
         type: Number,

@@ -3,7 +3,7 @@ import { createBooking,getBooking,getBookingAll} from '../controllers/bookingCon
 import { verifyUser,verifyAdmin } from '../utils/verifyToken.js';
 const router = express.Router();
 
-router.post('/', verifyUser, createBooking);
+router.post('/', createBooking);
 
 //getBooking
 router.get('/:id',verifyUser,getBooking);
