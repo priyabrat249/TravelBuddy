@@ -9,13 +9,13 @@ const router = express.Router();
 
 
 //CreateTour
-router.post('/',verifyAdmin, createTour);
+router.post('/', createTour);
 
 //UpdateTour
-router.put("/:id",verifyUser, updateTour);
+router.put("/:id", updateTour);
 
 //getDeleteTour
-router.delete('/:id', verifyAdmin,deleteTour);
+router.delete('/:id',deleteTour);
 
 //getSingleTour
 router.get('/:id', getSingleTour);

@@ -6,9 +6,9 @@ const router = express.Router();
 router.post('/', createBooking);
 
 //getBooking
-router.get('/:id',verifyUser,getBooking);
+router.get('/:id',getBooking);
 
 //getBookingAll
-router.get('/',verifyAdmin,getBookingAll);
+router.get('/',getBookingAll);
 
 export default router;

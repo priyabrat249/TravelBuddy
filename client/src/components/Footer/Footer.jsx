@@ -103,7 +103,7 @@ const Footer = () => {
         
       </Container>
       <div className='footer_copyright'>
-          <p>Copyright <i class="ri-copyright-line"></i> 2023 Dare2Achieve. All Rights Reserved</p>
+          <p>Copyright <i class="ri-copyright-line"></i> 2023 priyabratswain. All Rights Reserved</p>
       </div>
     </section>
   )

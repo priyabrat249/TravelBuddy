@@ -21,13 +21,13 @@ const corsOptions = {
 mongoose.set("strictQuery", false);
 const connect = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URL,{
+        await mongoose.connect('mongodb+srv://121cs0249:0pU2IJx5Ki2iyQ3O@travelbuddy.pwd5f3s.mongodb.net/?retryWrites=true&w=majority',{
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
         console.log('MongoDB database connection established');
     } catch (err) {
-        console.error(err);
+        console.log(err);
     }
 }
 
